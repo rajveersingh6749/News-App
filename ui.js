@@ -1,4 +1,5 @@
 import { CONFIG } from './config.js';
+import { shareManager } from './share.js';
 
 class UIManager {
     constructor() {
@@ -128,6 +129,9 @@ class UIManager {
             card.addEventListener("click", () => {
                 this.openArticle(article.url);
             });
+
+            // Setup sharing functionality
+            shareManager.setupCardSharing(card, article);
         }
     }
 
