@@ -1,10 +1,12 @@
 import { newsAPI } from './api.js';
 import { uiManager } from './ui.js';
+import { articleCreator } from './create-article.js';
 
 class NewsApp {
     constructor() {
         this.searchButton = document.getElementById("search-button");
         this.searchText = document.getElementById("search-text");
+        this.createButton = document.getElementById("create-article-btn");
         this.init();
     }
 
@@ -17,6 +19,9 @@ class NewsApp {
         
         // Setup keyboard navigation for search
         this.setupKeyboardNavigation();
+        
+        // Initialize article creator
+        articleCreator.init();
     }
 
     setupEventListeners() {
@@ -28,6 +33,11 @@ class NewsApp {
             if (e.key === "Enter") {
                 this.handleSearch();
             }
+        });
+
+        // Create article button
+        this.createButton.addEventListener("click", () => {
+            articleCreator.openModal();
         });
 
         // Navigation items
