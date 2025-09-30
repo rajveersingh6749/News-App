@@ -1,3 +1,5 @@
+import { CONFIG } from './config.js';
+
 class UIManager {
     constructor() {
         this.cardsContainer = document.getElementById("cards-container");

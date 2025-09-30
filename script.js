@@ -10,7 +10,7 @@ class NewsApp {
 
     init() {
         // Load initial news
-        window.addEventListener("load", () => this.fetchNews("technology"));
+        this.fetchNews("technology");
         
         // Setup event listeners
         this.setupEventListeners();
