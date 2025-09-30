@@ -1,0 +1,15 @@
+{
+  "name": "news-app",
+  "version": "1.0.0",
+  "description": "News App is a responsive web application that fetches and displays the latest news articles from various sources using the News API.",
+  "main": "script.js",
+  "scripts": {
+    "dev": "live-server"
+  },
+  "keywords": ["news", "api", "javascript", "responsive"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
