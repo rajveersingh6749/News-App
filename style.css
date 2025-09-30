@@ -369,16 +369,19 @@ main {
 }
 
 .cards-container {
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     row-gap: 20px;
     column-gap: 20px;
     align-items: start;
     min-height: 400px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
-    width: 360px;
+    width: calc(33.333% - 14px);
+    max-width: 360px;
     min-height: 400px;
     box-shadow: var(--shadow-light);
     border-radius: var(--border-radius);
@@ -635,7 +638,11 @@ main {
 /* Responsive design */
 @media (max-width: 1200px) {
     .cards-container {
-        justify-content: center;
+        justify-content: flex-start;
+    }
+    
+    .card {
+        width: calc(50% - 10px);
     }
 }
 
@@ -672,6 +679,10 @@ main {
     
     .container {
         padding-inline: 12px;
+    }
+    
+    .cards-container {
+        justify-content: center;
     }
 }
 

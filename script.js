@@ -24,8 +24,10 @@ class NewsApp {
         // Initialize article creator
         articleCreator.init();
         
-        // Make app globally available for article creation callback
-        window.app = this;
+        // Listen for article creation events
+        window.addEventListener('articleCreated', () => {
+            this.refreshFeed();
+        });
     }
 
     setupEventListeners() {
@@ -38,7 +40,6 @@ class NewsApp {
                 this.handleSearch();
             }
         });
-
         // Create article button
         this.createButton.addEventListener("click", () => {
             articleCreator.openModal();
@@ -49,10 +50,8 @@ class NewsApp {
         navItems.forEach(item => {
             item.addEventListener('click', () => this.onNavItemClick(item.id));
             item.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.onNavItemClick(item.id);
-                }
+                // Trigger refresh event
+                window.dispatchEvent(new CustomEvent('articleCreated'));
             });
         });
 
