@@ -7,12 +7,13 @@ class NewsApp {
         this.searchButton = document.getElementById("search-button");
         this.searchText = document.getElementById("search-text");
         this.createButton = document.getElementById("create-article-btn");
+        this.currentQuery = "technology";
         this.init();
     }
 
     init() {
         // Load initial news
-        this.fetchNews("technology");
+        this.fetchNews(this.currentQuery);
         
         // Setup event listeners
         this.setupEventListeners();
@@ -22,6 +23,9 @@ class NewsApp {
         
         // Initialize article creator
         articleCreator.init();
+        
+        // Make app globally available for article creation callback
+        window.app = this;
     }
 
     setupEventListeners() {
@@ -72,6 +76,7 @@ class NewsApp {
     }
 
     async fetchNews(query) {
+        this.currentQuery = query;
         try {
             uiManager.showLoading();
             const data = await newsAPI.fetchNews(query);
@@ -80,6 +85,11 @@ class NewsApp {
             console.error("Error fetching news:", error);
             uiManager.showError(error.message || "Failed to load news articles. Please try again.");
         }
+    }
+
+    refreshFeed() {
+        // Refresh current view without changing query
+        this.fetchNews(this.currentQuery);
     }
 
     handleSearch() {

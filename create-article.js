@@ -216,8 +216,10 @@ class ArticleCreator {
             // Close modal after short delay
             setTimeout(() => {
                 this.closeModal();
-                // Refresh the news feed to show the new article
-                window.location.reload();
+                // Refresh the news feed to show the new article without page reload
+                if (window.app && window.app.refreshFeed) {
+                    window.app.refreshFeed();
+                }
             }, 1500);
             
         } catch (error) {
