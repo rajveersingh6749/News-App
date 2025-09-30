@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay updated with the latest news from around the world. Browse by category or search for specific topics.">
     <title>News App</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,26 +12,27 @@
 
     <nav>
         <div class="main-nav container flex">
-            <a href="#" onclick="reload()" class="company-logo">
-                <img src="logo.png" alt="company logo">
+            <a href="#" class="company-logo" aria-label="News App Home">
+                <img src="logo.png" alt="News App Logo">
             </a>
             <div class="nav-links">
                 <ul class="flex">
-                    <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
-                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
-                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                    <li class="hover-link nav-item" id="ipl">IPL</li>
+                    <li class="hover-link nav-item" id="finance">Finance</li>
+                    <li class="hover-link nav-item" id="politics">Politics</li>
                 </ul>
             </div>
             <div class="search-bar flex">
-                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
-                <button id="search-button" class="search-button">Search</button>
+                <label for="search-text" class="sr-only">Search news articles</label>
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science" aria-label="Search news articles">
+                <button id="search-button" class="search-button" aria-label="Search">Search</button>
             </div>
         </div>
     </nav>
     
 
     <main>
-        <div class="cards-container container flex" id="cards-container">
+        <div class="cards-container container flex" id="cards-container" role="main" aria-live="polite">
             
         </div>
     </main>
@@ -38,7 +40,7 @@
     <template id="template-news-card">
         <div class="card">
             <div class="card-header">
-                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+                <img src="https://via.placeholder.com/400x200" alt="" id="news-img" loading="lazy">
             </div>
             <div class="card-content">
                 <h3 id="news-title">This is the Title</h3>
@@ -48,6 +50,6 @@
         </div>
     </template>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html> 
