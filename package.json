@@ -4,7 +4,7 @@
   "description": "News App is a responsive web application that fetches and displays the latest news articles from various sources using the News API.",
   "main": "script.js",
   "scripts": {
-    "dev": "live-server"
+    "dev": "npx live-server"
   },
   "keywords": ["news", "api", "javascript", "responsive"],
   "author": "",
